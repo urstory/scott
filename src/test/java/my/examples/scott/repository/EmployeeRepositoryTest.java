@@ -1,5 +1,6 @@
 package my.examples.scott.repository;
 
+import com.querydsl.core.Tuple;
 import my.examples.scott.domain.Employee;
 import my.examples.scott.dto.NameAndGrade;
 import my.examples.scott.dto.NameAndSalary;
@@ -11,7 +12,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.Tuple;
 import javax.persistence.TupleElement;
 import java.util.List;
 
@@ -74,6 +74,15 @@ public class EmployeeRepositoryTest {
         employees = employeeRepository.findEmployees("department", "ACCOUNTING");
         for(Employee employee : employees){
             System.out.println(employee.getName() + " , " + employee.getSalary()+ "," + (employee.getBoss() != null ? employee.getBoss().getName() : ""));
+        }
+    }
+
+    @Test
+    public void getNameAndGradeByQuerydsl() throws Exception{
+        List<Tuple> tuples = employeeRepository.getNameAndGradeByQuerydsl();
+        for(Tuple t : tuples){
+            System.out.println(t.get(0, String.class) + "," +
+                    t.get(1, Integer.class));
         }
     }
 }
