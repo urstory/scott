@@ -62,4 +62,18 @@ public class EmployeeRepositoryTest {
             System.out.println(employee.getName() + ", " + employee.getSalaryGrade());
         }
     }
+
+    @Test
+    public void findEmployees() throws Exception{
+        List<Employee> employees = employeeRepository.findEmployees("name", "S"); // KING
+        for(Employee employee : employees){
+            System.out.println(employee.getName() + " , " + employee.getSalary() + "," + (employee.getBoss() != null ? employee.getBoss().getName() : ""));
+        }
+
+        System.out.println("-------------------------------------------------");
+        employees = employeeRepository.findEmployees("department", "ACCOUNTING");
+        for(Employee employee : employees){
+            System.out.println(employee.getName() + " , " + employee.getSalary()+ "," + (employee.getBoss() != null ? employee.getBoss().getName() : ""));
+        }
+    }
 }

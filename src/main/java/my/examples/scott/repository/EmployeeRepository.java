@@ -3,13 +3,14 @@ package my.examples.scott.repository;
 import my.examples.scott.domain.Employee;
 import my.examples.scott.dto.NameAndGrade;
 import my.examples.scott.dto.NameAndSalary;
+import my.examples.scott.repository.custom.EmployeeRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import javax.persistence.Tuple;
 import java.util.List;
 
-public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+public interface EmployeeRepository extends JpaRepository<Employee, Integer>, EmployeeRepositoryCustom {
     /*
     사원의 이름, 급여, 커미션, 총액(급여+커미션)을 구하여 총액이 많은 순서로 출력하여라.
     (단, 커미션이 nll인 사원도 0으로 해서 포함하여라.)
