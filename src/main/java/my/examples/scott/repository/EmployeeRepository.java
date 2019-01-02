@@ -11,6 +11,10 @@ import javax.persistence.Tuple;
 import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>, EmployeeRepositoryCustom {
+
+
+    @Query("select e from Employee e order by e.empno")
+    public List<Employee> getEmployees1();
     /*
     사원의 이름, 급여, 커미션, 총액(급여+커미션)을 구하여 총액이 많은 순서로 출력하여라.
     (단, 커미션이 nll인 사원도 0으로 해서 포함하여라.)

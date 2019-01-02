@@ -24,6 +24,14 @@ public class EmployeeRepositoryTest {
     EmployeeRepository employeeRepository;
 
     @Test
+    public void getEmployees1(){
+        List<Employee> employees1 = employeeRepository.getEmployees1();
+        for(Employee e : employees1){
+            System.out.println(e.getEmpno() + ": " + e.getName() + ": " +  e.getDepartment().getName());
+        }
+    }
+
+    @Test
     public void getAlls() throws Exception{
         List<Employee> all = employeeRepository.findAll();
         for(Employee employee: all){
