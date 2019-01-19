@@ -46,4 +46,6 @@ CREATE TABLE EMPLOYEE(
    comm       DECIMAL(7, 2),
    deptno     INTEGER
 );
+
+칼럼명 : first_name , 필드 : firstName
  */

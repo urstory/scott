@@ -1,10 +1,19 @@
 Database생성, User 생성
 
+root계정으로 mysql database에 접속.
+mysql -uroot -p mysql
+암호>
+
 CREATE DATABASE scott;
-CREATE USER 'scott'@'localhost' IDENTIFIED BY 'scott';
+CREATE USER 'scott'@'localhost' IDENTIFIED BY 'tiger';
 GRANT ALL PRIVILEGES ON *.* TO 'scott'@'localhost'
     WITH GRANT OPTION;
-CREATE USER 'scott'@'%' IDENTIFIED BY 'scott';
+CREATE USER 'scott'@'%' IDENTIFIED BY 'tiger';
 GRANT ALL PRIVILEGES ON *.* TO 'scott'@'%'
      WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+
+
+mysql -uscott -p scott
+암홈> tiger
+

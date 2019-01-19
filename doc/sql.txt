@@ -6,6 +6,17 @@ DROP TABLE bonus;
 DROP TABLE project;
 DROP TABLE project_participation;
 DROP TABLE role;
+DROP TABLE board;
+
+CREATE TABLE board(
+    id BIGINT AUTO_INCREMENT,
+    name VARCHAR(255) not null,
+    title VARCHAR(255) not null,
+    content LONGTEXT not null,
+    read_count INTEGER,
+    regdate DATE,
+    PRIMARY KEY(id)
+);
 
 CREATE TABLE employee(
    empno      INTEGER NOT NULL,
