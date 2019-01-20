@@ -23,7 +23,9 @@ public class BoardRepositoryTest {
     public void getAll() throws Exception{
         System.out.println(boardRepository.getClass().getName());
         List<Board> boards = boardRepository.findAll();
-        boards.forEach(System.out::println);
+        for(Board board : boards){
+            System.out.println(board.getName());
+        }
     }
 
     @Test

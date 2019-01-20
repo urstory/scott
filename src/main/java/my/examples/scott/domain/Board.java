@@ -16,6 +16,8 @@ public class Board {
     private Long id;
     private String name;
     private String title;
+    @Basic(fetch = FetchType.LAZY)
+    @Lob
     private String content;
     private int readCount;
     private Date regdate;
