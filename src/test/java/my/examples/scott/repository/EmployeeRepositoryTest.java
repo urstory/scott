@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TupleElement;
 import java.util.List;
+import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -24,6 +25,13 @@ public class EmployeeRepositoryTest {
     EmployeeRepository employeeRepository;
 
     @Test
+    public void getEmployeeById(){
+        Employee employee = employeeRepository.getEmployeeById(7369);
+        System.out.println(employee.getEmpno() + "," + employee.getDepartment().getDeptno() );
+        if(employee.getBoss() != null)
+            System.out.println(employee.getBoss().getName());
+    }
+    @Test
     public void getEmployees1(){
         List<Employee> employees1 = employeeRepository.getEmployees1();
         for(Employee e : employees1){
@@ -33,9 +41,11 @@ public class EmployeeRepositoryTest {
 
     @Test
     public void getAlls() throws Exception{
-        List<Employee> all = employeeRepository.findAll();
+        List<Employee> all = employeeRepository.getEmployees2();
         for(Employee employee: all){
-            System.out.println(employee.getEmpno());
+            System.out.println(employee.getEmpno() + "," + employee.getDepartment().getDeptno() );
+            if(employee.getBoss() != null)
+                System.out.println(employee.getBoss().getName());
         }
     }
 

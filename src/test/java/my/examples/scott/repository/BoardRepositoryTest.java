@@ -25,6 +25,7 @@ public class BoardRepositoryTest {
         List<Board> boards = boardRepository.findAll();
         for(Board board : boards){
             System.out.println(board.getName());
+            System.out.println(board.getContent());
         }
     }
 

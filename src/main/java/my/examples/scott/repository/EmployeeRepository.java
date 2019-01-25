@@ -6,12 +6,18 @@ import my.examples.scott.dto.NameAndSalary;
 import my.examples.scott.repository.custom.EmployeeRepositoryCustom;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 
 import javax.persistence.Tuple;
 import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer>, EmployeeRepositoryCustom {
 
+    @Query("select e from Employee e left join fetch e.boss inner join fetch e.department where e.empno = :id")
+    public Employee getEmployeeById(@Param("id") Integer id);
+
+    @Query("select e from Employee e inner join fetch e.department")
+    public List<Employee> getEmployees2();
 
     @Query("select e from Employee e order by e.empno")
     public List<Employee> getEmployees1();
