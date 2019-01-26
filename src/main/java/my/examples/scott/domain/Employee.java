@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Setter
 public class Employee {
     @Id
-    private Integer empno;
+    private Integer empno; // int empno; - 0을 가질 수 있다.
 
     @Column(length = 10)
     private String name;

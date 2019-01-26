@@ -16,6 +16,8 @@ public interface EmployeeRepository extends JpaRepository<Employee, Integer>, Em
     @Query("select e from Employee e left join fetch e.boss inner join fetch e.department where e.empno = :id")
     public Employee getEmployeeById(@Param("id") Integer id);
 
+    // select e.name , d.name from employee e inner join department d
+    // on e.deptno = d.deptno;
     @Query("select e from Employee e inner join fetch e.department")
     public List<Employee> getEmployees2();
 

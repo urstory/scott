@@ -18,7 +18,6 @@ import java.util.Optional;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
-@Transactional
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 public class EmployeeRepositoryTest {
     @Autowired
